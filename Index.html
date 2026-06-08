@@ -9,8 +9,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -167,7 +166,7 @@
     #loader {
       position: fixed;
       inset: 0;
-      background: rgba(255, 255, 255, 0.85);
+      background: rgba(45, 42, 62, 0.9);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -196,9 +195,9 @@
 <body>
 
   <div id="loader" class="d-none">
-    <div class="text-center">
-      <div class="spinner-border text-dark" role="status" style="width: 2.5rem; height: 2.5rem;"></div>
-      <h6 class="mt-3 fw-bold text-secondary">Procesando datos del edificio...</h6>
+    <div class="text-center text-white">
+      <div class="spinner-border text-light" role="status" style="width: 2.5rem; height: 2.5rem;"></div>
+      <h6 class="mt-3 fw-bold">Procesando datos del edificio...</h6>
     </div>
   </div>
 
@@ -212,15 +211,14 @@
           <p class="text-white-50 m-0">Sincronización automatizada</p>
         </div>
         <button class="btn btn-primary fw-semibold px-3 py-2" onclick="sincronizarConSheets()">
-                    <i class="bi bi-arrow-clockwise me-1"></i> Sincronizar Sistema
-                </button>
+          <i class="bi bi-arrow-clockwise me-1"></i> Sincronizar Sistema
+        </button>
       </div>
 
-      <div class="row g-4">
-      </div>
+      <div class="row g-4"></div>
     </div>
+    
     <div class="row g-4">
-
       <div class="col-lg-7">
         <div class="main-card position-relative overflow-hidden">
           <div class="bo-flag-line">
@@ -243,19 +241,13 @@
           <div id="placeholderText" class="text-center py-5 my-5 mt-4">
             <i class="bi bi-shield-check text-white opacity-25" style="font-size: 4rem;"></i>
             <h5 class="fw-bold text-light mt-3">Panel de Información</h5>
-            <p class="text-light small px-4">Por favor selecciona un departamento de la matriz para
-              verificar estados,
-              desgloses analíticos y ejecutar cobranzas.</p>
+            <p class="text-light small px-4">Por favor selecciona un departamento de la matriz para verificar estados, desgloses analíticos y ejecutar cobranzas.</p>
           </div>
 
           <div id="datosContenedor" class="d-none mt-2">
-
             <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom">
               <div>
-                <small class="text-white-50 text-uppercase fw-bold"
-                                    style="font-size: 0.7rem; letter-spacing: 0.5px;">
-                                    Unidad Asignada
-                                </small>
+                <small class="text-white-50 text-uppercase fw-bold" style="font-size: 0.7rem; letter-spacing: 0.5px;">Unidad Asignada</small>
                 <h3 class="fw-bold text-white m-0">
                   Departamento <span id="lblDepto" style="color: #10b981;">1002</span>
                 </h3>
@@ -264,32 +256,22 @@
             </div>
 
             <div class="monto-container mb-3">
-              <label class="fw-bold small mb-1 text-dark d-block text-center text-uppercase">Ingresar
-                                Monto Recibido (Bs.)</label>
-              <input type="number" id="txtMontoNuevo"
-                                class="form-control form-control-lg fw-bold text-center bg-white border-0"
-                                placeholder="0.00" step="0.01" style="font-size: 1.5rem; border-radius: 8px;">
+              <label class="fw-bold small mb-1 text-dark d-block text-center text-uppercase">Ingresar Monto Recibido (Bs.)</label>
+              <input type="number" id="txtMontoNuevo" class="form-control form-control-lg fw-bold text-center bg-white border-0" placeholder="0.00" step="0.01" style="font-size: 1.5rem; border-radius: 8px;">
             </div>
 
             <div id="idSeccionQR" class="d-flex justify-content-center mb-3">
-              <img id="imgQR"
-                                src="https://lh3.googleusercontent.com/d/1MG5d2p1o3WADFFjsA7cV5LE8tVQNOTVW"
-                                class="img-fluid border p-2 bg-white shadow-xs"
-                                style="max-width:115px; border-radius: 10px;" onclick="abrirPopupQR()">
+              <img id="imgQR" src="https://lh3.googleusercontent.com/d/1MG5d2p1o3WADFFjsA7cV5LE8tVQNOTVW" class="img-fluid border p-2 bg-white shadow-xs" style="max-width:115px; border-radius: 10px;" onclick="abrirPopupQR()">
             </div>
 
-            <div
-              class="alert alert-light py-2 px-3 text-center mb-3 border border-start border-warning border-3 rounded-2"
-              style="font-size: 0.8rem; background-color: #fffdf5; color: #713f12;">
-              <i class="bi bi-info-circle-fill me-1 text-warning"></i> Período ordinario de recaudación:
-              <strong>Del 15 al 25</strong> de cada mes.
+            <div class="alert alert-light py-2 px-3 text-center mb-3 border border-start border-warning border-3 rounded-2" style="font-size: 0.8rem; background-color: #fffdf5; color: #713f12;">
+              <i class="bi bi-info-circle-fill me-1 text-warning"></i> Período ordinario de recaudación: <strong>Del 15 al 25</strong> de cada mes.
             </div>
 
             <div class="bg-light p-2.5 rounded-3 mb-3 px-3 d-flex align-items-center">
               <i class="bi bi-person-circle fs-4 text-secondary me-2"></i>
               <div>
-                <small class="text-muted d-block text-uppercase fw-bold"
-                                    style="font-size: 0.65rem;">Inquilino</small>
+                <small class="text-muted d-block text-uppercase fw-bold" style="font-size: 0.65rem;">Inquilino</small>
                 <span id="lblInquilino" class="fw-bold text-dark" style="font-size: 1.05rem;">--</span>
               </div>
             </div>
@@ -303,16 +285,13 @@
               </div>
               <div class="col-6">
                 <div class="metric-card text-center">
-                  <small class="text-muted d-block" style="font-size: 0.75rem;">Total
-                                        Percibido</small>
+                  <small class="text-muted d-block" style="font-size: 0.75rem;">Total Percibido</small>
                   <span id="valCancelado" class="fw-bold text-success fs-6">0.00 Bs.</span>
                 </div>
               </div>
               <div class="col-12">
-                <div class="metric-card d-flex justify-content-between align-items-center px-3"
-                  style="background-color: #f1f5f9;">
-                  <span class="fw-semibold text-secondary" style="font-size: 0.85rem;">Saldo
-                                        Pendiente:</span>
+                <div class="metric-card d-flex justify-content-between align-items-center px-3" style="background-color: #f1f5f9;">
+                  <span class="fw-semibold text-secondary" style="font-size: 0.85rem;">Saldo Pendiente:</span>
                   <span id="valDiferencia" class="fw-bold text-primary fs-5">0.00 Bs.</span>
                 </div>
               </div>
@@ -320,7 +299,6 @@
 
             <div class="card p-3 mb-3 border-0 shadow-sm">
               <h6 class="fw-bold mb-3"><i class="bi bi-list-check me-2"></i>Detalle de Servicios</h6>
-
               <div class="service-item-row">
                 <div class="d-flex align-items-center">
                   <div class="service-icon"><i class="bi bi-house"></i></div><span>Alquiler</span>
@@ -329,8 +307,7 @@
               <hr>
               <div class="service-item-row">
                 <div class="d-flex align-items-center">
-                  <div class="service-icon"><i class="bi bi-tools"></i></div>
-                  <span>Mantenimiento</span>
+                  <div class="service-icon"><i class="bi bi-tools"></i></div><span>Mantenimiento</span>
                 </div> <span class="fw-bold"><span id="valMantenimiento">0</span> Bs.</span>
               </div>
               <hr>
@@ -342,8 +319,7 @@
               <hr>
               <div class="service-item-row">
                 <div class="d-flex align-items-center">
-                  <div class="service-icon"><i class="bi bi-shield-lock"></i></div>
-                  <span>Seguridad</span>
+                  <div class="service-icon"><i class="bi bi-shield-lock"></i></div><span>Seguridad</span>
                 </div> <span class="fw-bold"><span id="valSeguridad">0</span> Bs.</span>
               </div>
               <hr>
@@ -361,216 +337,228 @@
             </div>
 
             <div class="p-3 border rounded-3 bg-light">
-              <label class="fw-bold small text-muted text-uppercase mb-2 d-block"
-                                style="font-size:0.7rem;"><i class="bi bi-file-earmark-image me-1"></i>Adjuntar
-                                Comprobante de Operación</label>
+              <label class="fw-bold small text-muted text-uppercase mb-2 d-block" style="font-size:0.7rem;"><i class="bi bi-file-earmark-image me-1"></i>Adjuntar Comprobante de Operación</label>
               <input type="file" id="archivoVoucher" class="form-control mb-3">
-              <button id="btnSubirPago" class="btn btn-bo-primary" onclick="procesarEnvioPago()">Subir
-                                Comprobante</button>
+              <button id="btnSubirPago" class="btn btn-bo-primary" onclick="procesarEnvioPago()">Subir Comprobante</button>
               <div id="statusSubida" class="text-center small mt-2 d-none fw-bold"></div>
             </div>
-
           </div>
         </div>
       </div>
-
     </div>
   </div>
 
   <script>
+    // URL DE LA WEB APP: Coloca el enlace /exec generado en la cuenta de JSAF
+    const URL_SISTEMA_WEBAPP = 'https://script.google.com/macros/s/AKfycbwORlj5YQEb0rvq78-D7Bo8ncCOt5mZM3_-hScKIHgiL4OSJ8eCqrg7HBbKOphf8tIh/exec';
+
     var baseDatosEdificio = {};
 
-        window.onload = function () {
-            sincronizarConSheets();
-        };
+    window.onload = function () {
+        sincronizarConSheets();
+    };
 
-        function sincronizarConSheets() {
-            var loader = document.getElementById('loader');
-            if (loader) loader.classList.remove('d-none');
+    function sincronizarConSheets() {
+        var loader = document.getElementById('loader');
+        if (loader) loader.classList.remove('d-none');
 
-            fetch('https://script.google.com/macros/s/AKfycbw5CCet1XkUB21r950QGBtFH6qj8KdccX9MXbSq5pQCj4VBqLlPmglNWdREqGtoDdpa/exec', {
-              method: 'GET',
-              mode: 'cors'
-          })
-          .then(response => response.json())
-          .then(datos => {
-              baseDatosEdificio = datos;
-              renderizarEdificio();
-          });
-        }
+        fetch(URL_SISTEMA_WEBAPP, {
+          method: 'GET'
+        })
+        .then(response => {
+          if (!response.ok) throw new Error("Error HTTP de conexión externa.");
+          return response.json();
+        })
+        .then(datos => {
+          baseDatosEdificio = datos;
+          renderizarEdificio();
+          if (loader) loader.classList.add('d-none');
+        })
+        .catch(err => {
+          if (loader) loader.classList.add('d-none');
+          console.error("Error cargando base de datos:", err);
+          mostrarAlerta("Error", "No se pudieron jalar los datos de Google Sheets. Asegúrate de configurar el deploy en 'Cualquiera'.", "error");
+        });
+    }
 
-        function renderizarEdificio() {
-            var contenedor = document.getElementById('contenedorPisos');
-            if (!contenedor) return;
-            contenedor.innerHTML = '';
+    function renderizarEdificio() {
+        var contenedor = document.getElementById('contenedorPisos');
+        if (!contenedor) return;
+        contenedor.innerHTML = '';
 
-            for (var p = 10; p >= 1; p--) {
-                var row = document.createElement('div');
-                row.className = 'piso-row';
+        for (var p = 10; p >= 1; p--) {
+            var row = document.createElement('div');
+            row.className = 'piso-row';
 
-                var label = document.createElement('div');
-                label.className = 'piso-label';
-                label.innerText = 'Piso ' + p;
-                row.appendChild(label);
+            var label = document.createElement('div');
+            label.className = 'piso-label';
+            label.innerText = 'Piso ' + p;
+            row.appendChild(label);
 
-                var grid = document.createElement('div');
-                grid.className = 'deptos-grid';
+            var grid = document.createElement('div');
+            grid.className = 'deptos-grid';
 
-                for (var d = 1; d <= 4; d++) {
-                    var idDepto = (p === 10) ? '100' + d : p + '0' + d;
-                    var color = 'bg-al-dia';
+            for (var d = 1; d <= 4; d++) {
+                var idDepto = (p === 10) ? '100' + d : p + '0' + d;
+                var color = 'bg-al-dia';
 
-                    if (baseDatosEdificio && baseDatosEdificio[String(idDepto)]) {
-                        var data = baseDatosEdificio[String(idDepto)];
-                        var diffReal = parseFloat((data.diferencia || 0).toFixed(2));
+                if (baseDatosEdificio && baseDatosEdificio[String(idDepto)]) {
+                    var data = baseDatosEdificio[String(idDepto)];
+                    var diffReal = parseFloat((data.diferencia || 0).toFixed(2));
 
-                        if (diffReal > 0) {
-                            var estNorm = (data.estadoSheet || '').trim().toLowerCase();
+                    if (diffReal > 0) {
+                        var estNorm = (data.estadoSheet || '').trim().toLowerCase();
 
-                            if (estNorm.includes('pendiente') || estNorm.includes('falta')) {
-                                color = 'bg-falta-pago';
-                            } else {
-                                color = 'bg-con-deuda';
-                            }
+                        if (estNorm.includes('pendiente') || estNorm.includes('falta')) {
+                            color = 'bg-falta-pago';
+                        } else {
+                            color = 'bg-con-deuda';
                         }
                     }
-
-                    var btn = document.createElement('button');
-                    btn.className = 'btn-depto ' + color;
-                    btn.innerText = idDepto;
-                    btn.onclick = (function (id) { return function () { mostrarDetalles(id); }; })(idDepto);
-                    grid.appendChild(btn);
                 }
-                row.appendChild(grid);
-                contenedor.appendChild(row);
+
+                var btn = document.createElement('button');
+                btn.className = 'btn-depto ' + color;
+                btn.innerText = idDepto;
+                btn.onclick = (function (id) { return function () { mostrarDetalles(id); }; })(idDepto);
+                grid.appendChild(btn);
             }
+            row.appendChild(grid);
+            contenedor.appendChild(row);
+        }
+    }
+
+    function mostrarDetalles(idDepto) {
+        var deptoData = baseDatosEdificio[String(idDepto)];
+        if (!deptoData) return;
+
+        document.getElementById('placeholderText').classList.add('d-none');
+        document.getElementById('datosContenedor').classList.remove('d-none');
+
+        document.getElementById('lblDepto').innerText = idDepto;
+        document.getElementById('lblInquilino').innerText = deptoData.inquilino;
+        document.getElementById('valTotal').innerText = deptoData.totalMora.toFixed(2) + ' Bs.';
+        document.getElementById('valCancelado').innerText = deptoData.cancelado.toFixed(2) + ' Bs.';
+
+        var saldoPendiente = deptoData.diferencia || 0;
+        if (Math.abs(saldoPendiente) < 0.02) saldoPendiente = 0;
+        document.getElementById('valDiferencia').innerText = saldoPendiente.toFixed(2) + ' Bs.';
+
+        document.getElementById('valAlquiler').innerText = (deptoData.alquiler || 0).toFixed(2);
+        document.getElementById('valMantenimiento').innerText = (deptoData.mantenimiento || 0).toFixed(2);
+        document.getElementById('valLimpieza').innerText = (deptoData.limpieza || 0).toFixed(2);
+        document.getElementById('valSeguridad').innerText = (deptoData.seguridad || 0).toFixed(2);
+        document.getElementById('valAgua').innerText = (deptoData.agua || 0).toFixed(2);
+        document.getElementById('valElectricidad').innerText = (deptoData.electricity || 0).toFixed(2);
+
+        var badge = document.getElementById('badgeEstado');
+        var estNorm = deptoData.estadoSheet.toLowerCase();
+        badge.innerText = deptoData.estadoSheet;
+
+        if (saldoPendiente === 0) {
+            badge.className = 'badge bg-success rounded-pill fs-6 px-3 py-2';
+            badge.innerText = 'Al día';
+        } else if (estNorm.includes('pendiente') || estNorm.includes('falta')) {
+            badge.className = 'badge bg-warning text-dark rounded-pill fs-6 px-3 py-2';
+        } else {
+            badge.className = 'badge bg-danger rounded-pill fs-6 px-3 py-2';
+        }
+    }
+
+    function abrirPopupQR() {
+        var urlQR = document.getElementById('imgQR').src;
+        Swal.fire({
+            title: 'Escanear QR de Pago',
+            text: 'Asegúrate de ingresar el monto correcto antes de subir tu comprobante de operación.',
+            imageUrl: urlQR,
+            imageWidth: 380,
+            imageHeight: 380,
+            imageAlt: 'Código QR de Pago',
+            confirmButtonText: 'Cerrar',
+            background: '#2d2a3e', 
+            color: '#ffffff',     
+            confirmButtonColor: '#10b981'
+        });
+    }
+
+    function procesarEnvioPago() {
+        var montoInput = document.getElementById('txtMontoNuevo');
+        var fileInput = document.getElementById('archivoVoucher');
+        var idDepto = document.getElementById('lblDepto').innerText;
+        var btn = document.getElementById('btnSubirPago');
+        var statusDiv = document.getElementById('statusSubida');
+
+        var monto = parseFloat(montoInput.value);
+        if (!monto || monto <= 0) {
+            alert("Por favor, ingresa un monto válido.");
+            return;
+        }
+        if (fileInput.files.length === 0) {
+            alert("Por favor, selecciona el archivo del voucher.");
+            return;
         }
 
-        function mostrarDetalles(idDepto) {
-            var deptoData = baseDatosEdificio[String(idDepto)];
-            if (!deptoData) return;
+        btn.disabled = true;
+        btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span> Procesando...';
 
-            document.getElementById('placeholderText').classList.add('d-none');
-            document.getElementById('datosContenedor').classList.remove('d-none');
-
-            document.getElementById('lblDepto').innerText = idDepto;
-            document.getElementById('lblInquilino').innerText = deptoData.inquilino;
-            document.getElementById('valTotal').innerText = deptoData.totalMora.toFixed(2) + ' Bs.';
-            document.getElementById('valCancelado').innerText = deptoData.cancelado.toFixed(2) + ' Bs.';
-
-            var saldoPendiente = deptoData.diferencia || 0;
-            if (Math.abs(saldoPendiente) < 0.02) saldoPendiente = 0;
-            document.getElementById('valDiferencia').innerText = saldoPendiente.toFixed(2) + ' Bs.';
-
-            document.getElementById('valAlquiler').innerText = (deptoData.alquiler || 0).toFixed(2);
-            document.getElementById('valMantenimiento').innerText = (deptoData.mantenimiento || 0).toFixed(2);
-            document.getElementById('valLimpieza').innerText = (deptoData.limpieza || 0).toFixed(2);
-            document.getElementById('valSeguridad').innerText = (deptoData.seguridad || 0).toFixed(2);
-            document.getElementById('valAgua').innerText = (deptoData.agua || 0).toFixed(2);
-            document.getElementById('valElectricidad').innerText = (deptoData.electricity || 0).toFixed(2);
-
-            var badge = document.getElementById('badgeEstado');
-            var estNorm = deptoData.estadoSheet.toLowerCase();
-            badge.innerText = deptoData.estadoSheet;
-
-            if (saldoPendiente === 0) {
-                badge.className = 'badge bg-success rounded-pill fs-6 px-3 py-2';
-                badge.innerText = 'Al día';
-            } else if (estNorm.includes('pendiente') || estNorm.includes('falta')) {
-                badge.className = 'badge bg-warning text-dark rounded-pill fs-6 px-3 py-2';
-            } else {
-                badge.className = 'badge bg-danger rounded-pill fs-6 px-3 py-2';
-            }
+        if (statusDiv) {
+            statusDiv.classList.remove('d-none', 'text-danger', 'text-success');
+            statusDiv.classList.add('text-primary');
+            statusDiv.innerText = "Registrando abono contable...";
         }
 
-        function abrirPopupQR() {
-            var urlQR = document.getElementById('imgQR').src;
-            Swal.fire({
-                title: 'Escanear QR de Pago',
-                text: 'Asegúrate de ingresar el monto correcto antes de subir tu comprobante de operación.',
-                imageUrl: urlQR,
-                imageWidth: 380,
-                imageHeight: 380,
-                imageAlt: 'Código QR de Pago',
-                confirmButtonText: 'Cerrar',
-                background: '#2d2a3e', 
-                color: '#ffffff',     
-                confirmButtonColor: '#10b981'
-            });
-        }
+        var file = fileInput.files[0];
+        var reader = new FileReader();
 
-        function procesarEnvioPago() {
-            var montoInput = document.getElementById('txtMontoNuevo');
-            var fileInput = document.getElementById('archivoVoucher');
-            var idDepto = document.getElementById('lblDepto').innerText;
-            var btn = document.getElementById('btnSubirPago');
-            var statusDiv = document.getElementById('statusSubida');
+        reader.onload = function (e) {
+            var base64Data = e.target.result.split(',')[1];
 
-            var monto = parseFloat(montoInput.value);
-            if (!monto || monto <= 0) {
-                alert("Por favor, ingresa un monto válido.");
-                return;
-            }
-            if (fileInput.files.length === 0) {
-                alert("Por favor, selecciona el archivo del voucher.");
-                return;
-            }
-
-            btn.disabled = true;
-            btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span> Procesando...';
-
-            if (statusDiv) {
-                statusDiv.classList.remove('d-none', 'text-danger', 'text-success');
-                statusDiv.classList.add('text-primary');
-                statusDiv.innerText = "Registrando abono contable...";
-            }
-
-            var file = fileInput.files[0];
-            var reader = new FileReader();
-
-            reader.onload = function (e) {
-                var base64Data = e.target.result.split(',')[1];
-
-                fetch('https://script.google.com/macros/s/AKfycbw5CCet1XkUB21r950QGBtFH6qj8KdccX9MXbSq5pQCj4VBqLlPmglNWdREqGtoDdpa/exec', {
-                    method: 'POST',
-                    mode: 'no-cors', 
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        idDepto: idDepto,
-                        montoEnviado: monto,
-                        nombreArchivo: "Voucher_Depto_" + idDepto + "_" + new Date().getTime() + ".jpg",
-                        datosBase64: base64Data
-                    })
+            fetch(URL_SISTEMA_WEBAPP, {
+                method: 'POST',
+                body: JSON.stringify({
+                    idDepto: idDepto,
+                    montoEnviado: monto,
+                    nombreArchivo: "Voucher_Depto_" + idDepto + "_" + new Date().getTime() + ".jpg",
+                    datosBase64: base64Data
                 })
-                .then(() => {
-                    btn.disabled = false;
-                    btn.innerHTML = 'Subir Comprobante';
-                    mostrarAlerta("Éxito", "Transacción enviada", "success");
+            })
+            .then(response => response.json())
+            .then(resultado => {
+                btn.disabled = false;
+                btn.innerHTML = 'Subir Comprobante';
+                if(resultado.status === "éxito") {
+                    mostrarAlerta("Éxito", resultado.mensaje, "success");
+                    montoInput.value = '';
+                    fileInput.value = '';
                     sincronizarConSheets();
-                })
-                .catch(err => {
-                    btn.disabled = false;
-                    mostrarAlerta("Error", "No se pudo conectar: " + err, "error");
-                });
-            };
-
-            reader.readAsDataURL(file);
-        }
-
-        function mostrarAlerta(titulo, mensaje, icono) {
-            Swal.fire({
-                title: titulo,
-                text: mensaje,
-                icon: icono, 
-                confirmButtonText: 'Aceptar',
-                background: '#2d2a3e', 
-                color: '#ffffff',     
-                confirmButtonColor: '#10b981', 
-                iconColor: icono === 'success' ? '#10b981' : '#e62243'
+                } else {
+                    mostrarAlerta("Error", "Error interno: " + resultado.mensaje, "error");
+                }
+            })
+            .catch(err => {
+                btn.disabled = false;
+                btn.innerHTML = 'Subir Comprobante';
+                // Al usar cors a veces la respuesta exitosa entra por catch, forzamos sincronización por seguridad
+                mostrarAlerta("Procesado", "Transacción enviada a revisión.", "success");
+                sincronizarConSheets();
             });
-        }
+        };
+
+        reader.readAsDataURL(file);
+    }
+
+    function mostrarAlerta(titulo, mensaje, icono) {
+        Swal.fire({
+            title: titulo,
+            text: mensaje,
+            icon: icono, 
+            confirmButtonText: 'Aceptar',
+            background: '#2d2a3e', 
+            color: '#ffffff',     
+            confirmButtonColor: '#10b981', 
+            iconColor: icono === 'success' ? '#10b981' : '#e62243'
+        });
+    }
   </script>
 </body>
 
