@@ -388,22 +388,15 @@
             var loader = document.getElementById('loader');
             if (loader) loader.classList.remove('d-none');
 
-            google.script.run
-                .withSuccessHandler(function (datos) {
-                    baseDatosEdificio = datos;
-                    renderizarEdificio();
-                    if (loader) loader.classList.add('d-none');
-
-                    var deptoActivo = document.getElementById('lblDepto').innerText;
-                    if (deptoActivo && deptoActivo !== "--") {
-                        mostrarDetalles(deptoActivo);
-                    }
-                })
-                .withFailureHandler(function (err) {
-                    if (loader) loader.classList.add('d-none');
-                    alert('Error en transferencia de datos: ' + err.message);
-                })
-                .obtenerDatosEdificio();
+            fetch('https://script.google.com/macros/s/AKfycbw5CCet1XkUB21r950QGBtFH6qj8KdccX9MXbSq5pQCj4VBqLlPmglNWdREqGtoDdpa/exec', {
+              method: 'GET',
+              mode: 'cors'
+          })
+          .then(response => response.json())
+          .then(datos => {
+              baseDatosEdificio = datos;
+              renderizarEdificio();
+          });
         }
 
         function renderizarEdificio() {
@@ -538,41 +531,29 @@
             reader.onload = function (e) {
                 var base64Data = e.target.result.split(',')[1];
 
-                google.script.run
-                    .withSuccessHandler(function () {
-                        btn.disabled = false;
-                        btn.innerHTML = 'Subir Comprobante';
-
-                        if (statusDiv) {
-                            statusDiv.classList.remove('text-primary');
-                            statusDiv.classList.add('text-success');
-                            statusDiv.innerText = "¡Abono añadido con éxito!";
-                        }
-
-                        mostrarAlerta("Éxito", "¡Transacción completada exitosamente!", "success");
-
-                        montoInput.value = "";
-                        fileInput.value = "";
-
-                        sincronizarConSheets();
-                    })
-                    .withFailureHandler(function (err) {
-                        btn.disabled = false;
-                        btn.innerHTML = 'Subir Comprobante';
-                        if (statusDiv) {
-                            statusDiv.classList.remove('text-primary');
-                            statusDiv.classList.add('text-danger');
-                            statusDiv.innerText = "Error: " + err.message;
-                        }
-                        mostrarAlerta("Error", "No se pudo completar: " + err.message, "error");
-                    })
-                    .registrarPagoConArchivo({
+                fetch('https://script.google.com/macros/s/AKfycbw5CCet1XkUB21r950QGBtFH6qj8KdccX9MXbSq5pQCj4VBqLlPmglNWdREqGtoDdpa/exec', {
+                    method: 'POST',
+                    mode: 'no-cors', 
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
                         idDepto: idDepto,
                         montoEnviado: monto,
                         nombreArchivo: "Voucher_Depto_" + idDepto + "_" + new Date().getTime() + ".jpg",
-                        tipoMime: file.type,
                         datosBase64: base64Data
-                    });
+                    })
+                })
+                .then(() => {
+                    btn.disabled = false;
+                    btn.innerHTML = 'Subir Comprobante';
+                    mostrarAlerta("Éxito", "Transacción enviada", "success");
+                    sincronizarConSheets();
+                })
+                .catch(err => {
+                    btn.disabled = false;
+                    mostrarAlerta("Error", "No se pudo conectar: " + err, "error");
+                });
             };
 
             reader.readAsDataURL(file);
